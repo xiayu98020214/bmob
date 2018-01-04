@@ -46,5 +46,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+        Money money = new Money();
+        money.setBank("icbc");
+        money.setSalary("company");
+        money.save(new SaveListener<String>() {
+            @Override
+            public void done(String objectId,BmobException e) {
+                if(e==null){
+                    Log.e(TAG,"添加数据成功，返回objectId为："+objectId);
+                }else{
+                    Log.e(TAG,"创建数据失败：" + e.getMessage());
+                }
+            }
+        });
     }
 }
