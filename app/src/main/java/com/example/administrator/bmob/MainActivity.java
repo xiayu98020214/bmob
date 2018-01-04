@@ -62,5 +62,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+        MyUser user = new MyUser();
+        user.setAge(15);
+        user.save(new SaveListener<String>() {
+            @Override
+            public void done(String objectId,BmobException e) {
+                if(e==null){
+                    Log.e(TAG,"添加数据成功，返回objectId为："+objectId);
+                }else{
+                    Log.e(TAG,"创建数据失败：" + e.getMessage());
+                }
+            }
+        });
     }
 }
